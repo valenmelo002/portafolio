@@ -3,6 +3,10 @@
     margin: 0
     } 
     
+    body {
+        background: linear-gradient(rgba(224, 205, 255, 0.7), rgba(236, 215, 250, 0.357)), url("/img/nikol.jpg");
+    }
+  
     .contenedor {
     width: 100%;
     margin: 25px auto;
@@ -23,41 +27,116 @@
     }
     
     .encabezado {
-        background-color:#CE97F5 ;
+        background-color:none;
         grid-area: encabezado;
         height: 200px;
+        display: flex;
+        justify-content: space-around;
     }
     
     .seccion {
-       background-color: bisque; 
+       background-color: none; 
        grid-area: seccion;
+       display: flex; 
+       justify-content:space-between; 
     }
     
     .contenido {
-    background-color: blue;
+    background-color: none;
     grid-area: contenido
     }
     
     .contenido2 {
-        background-color: aquamarine;
+        background-color: none;
         grid-area: contenido2;
         display: flex;
         text-align: center;
         align-items: center;
-        justify-content: center;
+        justify-content:flex-start;
     }
     
     .box1 {
-    background-color: blueviolet;
+    background-color: none;
     grid-area: box1;
+    display: flex;
+    justify-content: center;
     }
     
     .box2 {
-    background-color: chartreuse;
+    background-color: none;
     grid-area: box2;
     }
     
     .pie { 
-    background-color: red;
+    background-color: none;
     grid-area: pie;
+    }
+  
+    p {
+      text-align: center;
+      box-shadow: inset;
+    }
+  
+    .grid-container > * {
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        font-weight: 500;
+    }
+    
+    .grid-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns:
+          [main-start aside-start] 1fr
+          [aside-end content-start] 2fr
+          [content-end main-end];
+        grid-template: 
+        "header"
+        "sidebar"
+        "main"
+        "section"
+        "footer";
+    
+        header {
+            grid-area: header; 
+            background-color: none;
+        }
+  
+        .sidebar {
+            grid-area: sidebar; 
+            background-color: none;
+        }
+        .main {
+            grid-area: main; 
+            background-color: none;
+        }
+    
+        .section {
+            grid-area: section;
+            background-color: none;
+        }
+    
+        .footer {
+            grid-area: footer; 
+            background-color: none;
+            text-align: center;
+        }
+    
+  
+        @media (min-width:768px) {
+            grid-template: 
+            "header sidebar" 50px
+            "header sidebar" 50px
+            "main main section"  auto
+            "footer footer" 100px/
+            200px auto;
+        }
+        @media (min-width:992px) {
+            grid-template: 
+            "header header header 100px 
+            "sidebar seccion main"  2fr
+            "footer footer footer" 100px/
+            200px auto 200px;
+        } 
     }
